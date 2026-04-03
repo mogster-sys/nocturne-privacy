@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nocturne Journal — Privacy Policy</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    background: #0f0f23;
+    color: #d4c8b2;
+    line-height: 1.7;
+  }
+  h1 {
+    color: #c9b896;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #3a2a3b;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  h2 {
+    color: #c9b896;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  a { color: #8b7355; }
+  a:hover { color: #c9b896; }
+  p { margin: 0.8rem 0; }
+  .updated { color: #8a7f72; font-size: 0.9rem; }
+  .nav { margin-top: 1rem; font-size: 0.9rem; }
+  .nav a { margin-right: 1.5rem; }
+  ul { margin: 0.8rem 0 0.8rem 1.5rem; }
+  li { margin: 0.4rem 0; }
+</style>
+</head>
+<body>
+<h1>Privacy Policy &mdash; Nocturne Journal</h1>
+<p class="updated">Last updated: April 2026</p>
+<p>Developed by <strong>Three Eyed Emu</strong></p>
+<div class="nav"><a href="index.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+
+<h2>Overview</h2>
+<p>Nocturne Journal is built on a simple principle: <strong>your dreams are private</strong>. This policy explains precisely what data the app handles, where it goes, and what we never do with it.</p>
+
+<h2>Voice Recordings</h2>
+<p>Voice recordings are transcribed entirely on your device using Moonshine, an on-device speech recognition model. Your audio is <strong>never uploaded, never transmitted, and never stored anywhere other than your phone's local storage</strong>. This is a core architectural decision, not a setting.</p>
+
+<h2>Dream Entries and Journal Data</h2>
+<p>Your dream text, tags, emotions, artwork, and journal entries are stored locally on your device by default. If you create an account and enable cloud sync, this data is stored in Supabase (a secure, SOC 2 compliant cloud database). Audio files are explicitly excluded from sync and remain local only.</p>
+
+<h2>AI Features</h2>
+<p>When you request AI artwork, enhancement, or interpretation, your dream text (not audio) is sent to OpenAI's API. OpenAI processes this text to generate a response and does not store it for training purposes under our API agreement. No personal identifying information is included in these requests.</p>
+
+<h2>Face Swap Feature</h2>
+<p>If you use the face swap feature, your chosen reference photo and the dream image are sent to Replicate's API for processing. The composited result is returned to your device. Neither the reference photo nor the original image is stored on Replicate's servers after processing. We do not store reference photos on our servers at any point.</p>
+
+<h2>Image Sharing</h2>
+<p>The app includes an optional "Share Artwork" feature that lets you share AI-generated dream artwork. When sharing:</p>
+<ul>
+  <li>Only the artwork image is shared &mdash; never your dream text, transcription, audio, emotions, or personal details.</li>
+  <li>A confirmation prompt reminds you that dreams are personal before any share action proceeds.</li>
+  <li>Sharing is entirely optional and user-initiated.</li>
+</ul>
+
+<h2>Account and Email</h2>
+<p>Creating an account is optional. If you sign up, your email address is stored in Supabase for authentication purposes only. It is never sold, never shared with third parties, and never used for marketing without your explicit consent.</p>
+
+<h2>Data We Collect</h2>
+<table style="border-collapse: collapse; width: 100%; margin: 1rem 0;">
+<tr style="border-bottom: 1px solid #3a2a3b;">
+  <th style="text-align: left; padding: 0.5rem; color: #c9b896;">Data</th>
+  <th style="text-align: left; padding: 0.5rem; color: #c9b896;">Collected?</th>
+  <th style="text-align: left; padding: 0.5rem; color: #c9b896;">Shared?</th>
+  <th style="text-align: left; padding: 0.5rem; color: #c9b896;">Notes</th>
+</tr>
+<tr style="border-bottom: 1px solid #2a222f;">
+  <td style="padding: 0.5rem;">Email</td>
+  <td style="padding: 0.5rem;">Optional</td>
+  <td style="padding: 0.5rem;">No</td>
+  <td style="padding: 0.5rem;">Sign-in only, via Supabase</td>
+</tr>
+<tr style="border-bottom: 1px solid #2a222f;">
+  <td style="padding: 0.5rem;">Voice recordings</td>
+  <td style="padding: 0.5rem;">No</td>
+  <td style="padding: 0.5rem;">No</td>
+  <td style="padding: 0.5rem;">On-device only, never leaves phone</td>
+</tr>
+<tr style="border-bottom: 1px solid #2a222f;">
+  <td style="padding: 0.5rem;">Photos</td>
+  <td style="padding: 0.5rem;">Optional</td>
+  <td style="padding: 0.5rem;">Transiently</td>
+  <td style="padding: 0.5rem;">Face swap only, discarded after processing</td>
+</tr>
+<tr style="border-bottom: 1px solid #2a222f;">
+  <td style="padding: 0.5rem;">Dream text</td>
+  <td style="padding: 0.5rem;">Yes</td>
+  <td style="padding: 0.5rem;">With OpenAI</td>
+  <td style="padding: 0.5rem;">For AI features only, not stored for training</td>
+</tr>
+<tr style="border-bottom: 1px solid #2a222f;">
+  <td style="padding: 0.5rem;">Device ID</td>
+  <td style="padding: 0.5rem;">No</td>
+  <td style="padding: 0.5rem;">No</td>
+  <td style="padding: 0.5rem;">&mdash;</td>
+</tr>
+<tr>
+  <td style="padding: 0.5rem;">Location</td>
+  <td style="padding: 0.5rem;">No</td>
+  <td style="padding: 0.5rem;">No</td>
+  <td style="padding: 0.5rem;">&mdash;</td>
+</tr>
+</table>
+
+<h2>Analytics and Tracking</h2>
+<p>Nocturne does not use analytics SDKs, advertising identifiers, tracking pixels, or third-party analytics services. We do not track your behaviour across other apps or websites. The app includes Sentry for crash reporting in production builds only &mdash; this captures technical error data, not personal content.</p>
+
+<h2>Data Encryption</h2>
+<p>All data transmitted between the app and our servers is encrypted in transit via TLS/HTTPS. Cloud-synced data is encrypted at rest in Supabase's infrastructure.</p>
+
+<h2>Data Retention and Deletion</h2>
+<p>You can delete your account and all associated cloud data at any time from Settings &gt; Account. Local data can be cleared by uninstalling the app or using Settings &gt; Journal Data &gt; Delete All Data. Exported backups (JSON, CSV, HTML) are saved to your device and are under your control.</p>
+
+<h2>Third-Party Services</h2>
+<ul>
+  <li><strong>OpenAI</strong> &mdash; Dream text processing for AI artwork and enhancement. <a href="https://openai.com/policies/privacy-policy">OpenAI Privacy Policy</a></li>
+  <li><strong>Replicate</strong> &mdash; Image processing for face swap feature. <a href="https://replicate.com/privacy">Replicate Privacy Policy</a></li>
+  <li><strong>Supabase</strong> &mdash; Optional cloud authentication and data sync. <a href="https://supabase.com/privacy">Supabase Privacy Policy</a></li>
+  <li><strong>Sentry</strong> &mdash; Crash reporting (production only, no personal content). <a href="https://sentry.io/privacy/">Sentry Privacy Policy</a></li>
+</ul>
+
+<h2>Children</h2>
+<p>Nocturne is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us so we can take appropriate action.</p>
+
+<h2>Changes to This Policy</h2>
+<p>We will update this policy if our data practices change. The current version is always accessible at this URL and from within the app. Material changes will be highlighted in the app's release notes.</p>
+
+<h2>Contact</h2>
+<p><strong>mogster@threeeyedemu.com.au</strong><br>Three Eyed Emu<br>Perth, Western Australia</p>
+
+</body>
+</html>
