@@ -36,105 +36,125 @@
   .nav a { margin-right: 1.5rem; }
   ul { margin: 0.8rem 0 0.8rem 1.5rem; }
   li { margin: 0.4rem 0; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+  th { text-align: left; padding: 0.5rem; color: #c9b896; }
+  td { padding: 0.5rem; vertical-align: top; }
+  tr { border-bottom: 1px solid #2a222f; }
+  tr.header { border-bottom: 1px solid #3a2a3b; }
 </style>
 </head>
 <body>
 <h1>Privacy Policy &mdash; Nocturne Journal</h1>
-<p class="updated">Last updated: April 2026</p>
+<p class="updated">Last updated: May 2026</p>
 <p>Developed by <strong>Three Eyed Emu</strong></p>
 <div class="nav"><a href="index.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
 
 <h2>Overview</h2>
-<p>Nocturne Journal is built on a simple principle: <strong>your dreams are private</strong>. This policy explains precisely what data the app handles, where it goes, and what we never do with it.</p>
+<p>Nocturne Journal is a private dream journal. This policy explains exactly what data the app handles, where it is sent, what is stored, and what is not. It is written to match the app's actual behaviour rather than to read well in marketing.</p>
 
-<h2>Voice Recordings</h2>
-<p>Voice recordings are transcribed entirely on your device using Moonshine, an on-device speech recognition model. Your audio is <strong>never uploaded, never transmitted, and never stored anywhere other than your phone's local storage</strong>. This is a core architectural decision, not a setting.</p>
+<h2>Voice Recordings &mdash; You Choose How They Are Transcribed</h2>
+<p>When you record a dream, Nocturne always transcribes the audio first on your device using Moonshine, a local speech recognition model. After that, the app's behaviour depends on a setting you control:</p>
+<ul>
+  <li><strong>Cloud transcription (the default).</strong> Once recording finishes, the audio is sent to OpenAI's Whisper transcription service to produce a more accurate transcript. OpenAI's audio transcription endpoint operates under a Zero Data Retention agreement: audio is processed in real time, is <strong>not stored</strong> on OpenAI's servers, and is <strong>not used to train</strong> their models. The audio leaves your device only for the seconds it takes to be transcribed.</li>
+  <li><strong>On-device only.</strong> You can switch this off in <em>Settings &rarr; Cloud transcription</em>. With cloud transcription disabled, the on-device Moonshine transcript is kept and your audio <strong>never leaves your phone</strong>.</li>
+</ul>
+<p>Either way, the audio file itself is kept only in your app's private storage. It is never uploaded to our servers and is never included in cloud sync.</p>
 
-<h2>Dream Entries and Journal Data</h2>
-<p>Your dream text, tags, emotions, artwork, and journal entries are stored locally on your device by default. If you create an account and enable cloud sync, this data is stored in Supabase (a secure, SOC 2 compliant cloud database). Audio files are explicitly excluded from sync and remain local only.</p>
+<h2>Dream Text and Journal Data</h2>
+<p>Your dream text, titles, tags, emotions, themes, and journal entries are stored locally on your device in a private SQLite database. They are not shared with anyone unless you explicitly trigger a feature that requires it (see the next two sections).</p>
+<p>If you create an account and turn on cloud sync, the text portion of your journal is also stored in Supabase under your user account. Audio files and the device-side paths to them are always excluded from sync.</p>
 
-<h2>AI Features</h2>
-<p>When you request AI artwork, enhancement, or interpretation, your dream text (not audio) is sent to OpenAI's API. OpenAI processes this text to generate a response and does not store it for training purposes under our API agreement. No personal identifying information is included in these requests.</p>
+<h2>AI Artwork, Analysis, and Enhancement</h2>
+<p>When you ask Nocturne to generate artwork, analyse a dream, or enhance a description, the relevant dream text is sent to OpenAI to produce the result. OpenAI's API terms state that API content is not used to train their models. The text is processed to return a response and is not retained for training purposes.</p>
 
-<h2>Face Swap Feature</h2>
-<p>If you use the face swap feature, your chosen reference photo and the dream image are sent to Replicate's API for processing. The composited result is returned to your device. Neither the reference photo nor the original image is stored on Replicate's servers after processing. We do not store reference photos on our servers at any point.</p>
+<h2>Face Swap (Optional)</h2>
+<p>If you use the face swap feature, the reference photo you provide and the dream artwork are sent to Replicate's API for processing. The composited image is returned to your device. Neither the reference photo nor the source image is stored on our servers, and Replicate's API processes them transiently for the single request.</p>
 
 <h2>Image Sharing</h2>
-<p>The app includes an optional "Share Artwork" feature that lets you share AI-generated dream artwork. When sharing:</p>
+<p>The app includes an optional "Share Artwork" feature. When you share:</p>
 <ul>
   <li>Only the artwork image is shared &mdash; never your dream text, transcription, audio, emotions, or personal details.</li>
-  <li>A confirmation prompt reminds you that dreams are personal before any share action proceeds.</li>
-  <li>Sharing is entirely optional and user-initiated.</li>
+  <li>A confirmation prompt appears before any share action proceeds.</li>
+  <li>Sharing is always user-initiated.</li>
 </ul>
 
 <h2>Account and Email</h2>
-<p>Creating an account is optional. If you sign up, your email address is stored in Supabase for authentication purposes only. It is never sold, never shared with third parties, and never used for marketing without your explicit consent.</p>
+<p>Creating an account is optional. If you sign up, your email address is stored in Supabase for authentication only. It is not sold, not shared with third parties, and not used for marketing without your explicit consent.</p>
 
-<h2>Data We Collect</h2>
-<table style="border-collapse: collapse; width: 100%; margin: 1rem 0;">
-<tr style="border-bottom: 1px solid #3a2a3b;">
-  <th style="text-align: left; padding: 0.5rem; color: #c9b896;">Data</th>
-  <th style="text-align: left; padding: 0.5rem; color: #c9b896;">Collected?</th>
-  <th style="text-align: left; padding: 0.5rem; color: #c9b896;">Shared?</th>
-  <th style="text-align: left; padding: 0.5rem; color: #c9b896;">Notes</th>
-</tr>
-<tr style="border-bottom: 1px solid #2a222f;">
-  <td style="padding: 0.5rem;">Email</td>
-  <td style="padding: 0.5rem;">Optional</td>
-  <td style="padding: 0.5rem;">No</td>
-  <td style="padding: 0.5rem;">Sign-in only, via Supabase</td>
-</tr>
-<tr style="border-bottom: 1px solid #2a222f;">
-  <td style="padding: 0.5rem;">Voice recordings</td>
-  <td style="padding: 0.5rem;">No</td>
-  <td style="padding: 0.5rem;">No</td>
-  <td style="padding: 0.5rem;">On-device only, never leaves phone</td>
-</tr>
-<tr style="border-bottom: 1px solid #2a222f;">
-  <td style="padding: 0.5rem;">Photos</td>
-  <td style="padding: 0.5rem;">Optional</td>
-  <td style="padding: 0.5rem;">Transiently</td>
-  <td style="padding: 0.5rem;">Face swap only, discarded after processing</td>
-</tr>
-<tr style="border-bottom: 1px solid #2a222f;">
-  <td style="padding: 0.5rem;">Dream text</td>
-  <td style="padding: 0.5rem;">Yes</td>
-  <td style="padding: 0.5rem;">With OpenAI</td>
-  <td style="padding: 0.5rem;">For AI features only, not stored for training</td>
-</tr>
-<tr style="border-bottom: 1px solid #2a222f;">
-  <td style="padding: 0.5rem;">Device ID</td>
-  <td style="padding: 0.5rem;">No</td>
-  <td style="padding: 0.5rem;">No</td>
-  <td style="padding: 0.5rem;">&mdash;</td>
+<h2>Device Identifier</h2>
+<p>To enforce free-trial limits and prevent abuse of the AI generation features, Nocturne sends a one-way hashed device identifier (derived from Android's standard <code>ANDROID_ID</code>) to our backend. We do not see the raw identifier, we do not link it to your name or email, and it is used only to count generations against your free allowance. If you create an account, your user id is used in place of the device id.</p>
+
+<h2>Summary &mdash; What is Collected, What is Shared</h2>
+<table>
+<tr class="header">
+  <th>Data</th>
+  <th>Collected</th>
+  <th>Shared with</th>
+  <th>Notes</th>
 </tr>
 <tr>
-  <td style="padding: 0.5rem;">Location</td>
-  <td style="padding: 0.5rem;">No</td>
-  <td style="padding: 0.5rem;">No</td>
-  <td style="padding: 0.5rem;">&mdash;</td>
+  <td>Email address</td>
+  <td>Optional</td>
+  <td>Supabase</td>
+  <td>Only if you create an account</td>
+</tr>
+<tr>
+  <td>Voice recording (audio)</td>
+  <td>Yes &mdash; default; No if on-device-only is on</td>
+  <td>OpenAI (Whisper)</td>
+  <td>Transient processing only; not stored, not used for training; user can opt out per the toggle</td>
+</tr>
+<tr>
+  <td>Dream text</td>
+  <td>Yes when AI features are used</td>
+  <td>OpenAI, Replicate (face swap context only)</td>
+  <td>Not used for training</td>
+</tr>
+<tr>
+  <td>Reference photo (face swap)</td>
+  <td>Only when you use face swap</td>
+  <td>Replicate</td>
+  <td>Discarded after compositing</td>
+</tr>
+<tr>
+  <td>Generated artwork</td>
+  <td>Yes</td>
+  <td>Supabase Storage</td>
+  <td>Stored so the image can be re-displayed; you can delete it from the app</td>
+</tr>
+<tr>
+  <td>Hashed device id</td>
+  <td>Yes</td>
+  <td>Nocturne backend</td>
+  <td>For free-trial enforcement only; one-way hash; not linked to identity</td>
+</tr>
+<tr>
+  <td>Location, contacts, calendar, SMS, financial, health</td>
+  <td>No</td>
+  <td>&mdash;</td>
+  <td>Never collected</td>
 </tr>
 </table>
 
 <h2>Analytics and Tracking</h2>
-<p>Nocturne does not use analytics SDKs, advertising identifiers, tracking pixels, or third-party analytics services. We do not track your behaviour across other apps or websites. The app includes Sentry for crash reporting in production builds only &mdash; this captures technical error data, not personal content.</p>
+<p>Nocturne does not use analytics SDKs, advertising identifiers, or tracking pixels. We do not track your behaviour across other apps or websites. The app includes Sentry for crash reporting in production builds only &mdash; Sentry receives technical error data (stack traces, app version, device model), <strong>not</strong> the contents of your dreams.</p>
 
-<h2>Data Encryption</h2>
-<p>All data transmitted between the app and our servers is encrypted in transit via TLS/HTTPS. Cloud-synced data is encrypted at rest in Supabase's infrastructure.</p>
+<h2>Encryption</h2>
+<p>All data sent between the app, our backend, and third-party services is encrypted in transit (TLS/HTTPS). Cloud-stored data in Supabase is encrypted at rest in Supabase's infrastructure. Your on-device SQLite journal is stored in your app's private storage area but is not encrypted at rest on the device; consider Android's device encryption (on by default for recent Android versions) your primary protection there.</p>
 
 <h2>Data Retention and Deletion</h2>
-<p>You can delete your account and all associated cloud data at any time from Settings &gt; Account. Local data can be cleared by uninstalling the app or using Settings &gt; Journal Data &gt; Delete All Data. Exported backups (JSON, CSV, HTML) are saved to your device and are under your control.</p>
+<p>You can delete an individual dream at any time from the dream detail screen. You can clear all local data from <em>Settings &rarr; Journal Data &rarr; Delete All Data</em>, or by uninstalling the app. If you signed up for an account and want your cloud data deleted, including after uninstalling, email <strong>mogster@threeeyedemu.com.au</strong> and we will action the request and confirm in writing. Account deletion removes your row in Supabase Auth and all dream rows linked to your user id.</p>
 
 <h2>Third-Party Services</h2>
 <ul>
-  <li><strong>OpenAI</strong> &mdash; Dream text processing for AI artwork and enhancement. <a href="https://openai.com/policies/privacy-policy">OpenAI Privacy Policy</a></li>
-  <li><strong>Replicate</strong> &mdash; Image processing for face swap feature. <a href="https://replicate.com/privacy">Replicate Privacy Policy</a></li>
-  <li><strong>Supabase</strong> &mdash; Optional cloud authentication and data sync. <a href="https://supabase.com/privacy">Supabase Privacy Policy</a></li>
-  <li><strong>Sentry</strong> &mdash; Crash reporting (production only, no personal content). <a href="https://sentry.io/privacy/">Sentry Privacy Policy</a></li>
+  <li><strong>OpenAI</strong> &mdash; Speech-to-text transcription (Whisper, Zero Data Retention) when cloud transcription is enabled; text processing for AI artwork, analysis, and prompt enhancement. <a href="https://openai.com/policies/privacy-policy">OpenAI Privacy Policy</a></li>
+  <li><strong>Replicate</strong> &mdash; Image processing for the optional face swap feature. <a href="https://replicate.com/privacy">Replicate Privacy Policy</a></li>
+  <li><strong>Supabase</strong> &mdash; Optional account authentication, optional cloud sync of dream text, and storage of generated artwork images. <a href="https://supabase.com/privacy">Supabase Privacy Policy</a></li>
+  <li><strong>Sentry</strong> &mdash; Crash reporting in production builds only. <a href="https://sentry.io/privacy/">Sentry Privacy Policy</a></li>
 </ul>
 
 <h2>Children</h2>
-<p>Nocturne is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us so we can take appropriate action.</p>
+<p>Nocturne is not directed at children under 13 and is rated for adult users. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us so we can take appropriate action.</p>
 
 <h2>Changes to This Policy</h2>
 <p>We will update this policy if our data practices change. The current version is always accessible at this URL and from within the app. Material changes will be highlighted in the app's release notes.</p>
